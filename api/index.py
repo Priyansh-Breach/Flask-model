@@ -8,7 +8,7 @@ from xgboost import XGBClassifier
 app = Flask(__name__)
 
 # Load the trained XGBoost model
-with open('xgb_model.pkl', 'rb') as f:
+with open('../xgb_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 
