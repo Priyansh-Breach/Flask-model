@@ -20,26 +20,26 @@ def mn():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    try:
-        # Get data from the request as JSON
-        data = request.get_json()
-        print(data)
+    # try:
+    # Get data from the request as JSON
+    data = request.get_json()
+    print(data)
 
 
-        d = pd.DataFrame([data])
-        print(d.dtypes)
+    d = pd.DataFrame([data])
+    print(d.dtypes)
 
-        # Make predictions
-        print(model.get_booster().feature_names)
-        prediction = model.predict(d)
-        print("Prediction:", prediction)
+    # Make predictions
+    print(model.get_booster().feature_names)
+    prediction = model.predict(d)
+    print("Prediction:", prediction)
 
-        # Convert the prediction to the desired format
-        prediction = prediction.tolist()
+    # Convert the prediction to the desired format
+    prediction = prediction.tolist()
 
-        # Return the prediction as JSON
-        return jsonify({'prediction': prediction})
+    # Return the prediction as JSON
+    return jsonify({'prediction': prediction})
 
-    except Exception as e:
-        print("Error:", str(e))
-        return jsonify({'error': str(e)})
+    # except Exception as e:
+    #     print("Error:", str(e))
+    #     return jsonify({'error': str(e)})
