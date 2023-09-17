@@ -10,6 +10,11 @@ app = Flask(__name__)
 with open('xgb_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
+@app.route('/favicon.ico')
+def favicon():
+    # Return an empty response or an actual favicon.ico file
+    return '', 204
+
 @app.route('/')
 def home():
     return "Jai Shree Ram!"
