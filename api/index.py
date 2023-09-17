@@ -3,7 +3,7 @@
 from flask import Flask, request, jsonify
 import pickle
 import pandas as pd
-from xgboost import XGBClassifier
+import xgboost as xgb
 
 app = Flask(__name__)
 
